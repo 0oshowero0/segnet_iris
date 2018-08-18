@@ -20,7 +20,7 @@ if __name__ == "__main__":
                                                     shuffle=False,num_workers=8)
 
     model = segnet()
-    ckpt = torch.load("./best_model_6_800.pkl")
+    ckpt = torch.load("./best_model_22_1200.pkl")
     state = convert_state_dict(ckpt['model_state'])
     model.load_state_dict(state)
     model = torch.nn.DataParallel(model, device_ids=range(torch.cuda.device_count()-1))
@@ -35,11 +35,14 @@ if __name__ == "__main__":
             outputs = model(images)
             #print(outputs.size())
             img_array = outputs.cpu().numpy()
+            
             #img_array = np.amax(img_array,1)
             #img_array = np.maximum(img_array[0,0,:,:],img_array[0,1,:,:])
             img_array = np.squeeze(np.argmax(img_array, axis = 1))*255
+            d = img_array.astype(np.uint8)
+
             #print(output.max())
-            Img = Image.fromarray(img_array,'L')  
+            Img = Image.fromarray(d,'L')  
             print('../output/'+''.join(name))
             Img.save('../output/'+''.join(name),'PNG')
 
