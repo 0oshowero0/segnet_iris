@@ -14,8 +14,8 @@ def main():
                 label = Image.open(origin_label_root+filename)
                 if img.mode != 'L' or img.size != (1024,1024) or label.mode != 'L' or label.size != (1024,1024):
                     print('./'+filename)
-                label_data = np.array(label.getdata(),dtype=int)
-"""                 for pix in label_data:
+"""                label_data = np.array(label.getdata(),dtype=int)
+                 for pix in label_data:
                     if pix !=0 and pix != 255:
                         print(filename)
                         break """
