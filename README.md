@@ -9,7 +9,7 @@ Given that Iris dataset has been downloaded as "Iris_Segmentation_Dataset.tar.gz
 ## Requirement
 
    Pytorch 0.4.1
-
+   Pandas 0.20.3
 ## How to Run
 
 
