@@ -9,12 +9,9 @@ Given that Iris dataset has been downloaded as "Iris_Segmentation_Dataset.tar.gz
 ## Requirement
 
    Pytorch 0.4.1
-   
----
 
 ## How to Run
 
----
 
 1. Make a new dir named _"data"_
 
